@@ -1,0 +1,11 @@
+<a href="#" class="list-group-item clearfix" (click)="onSendRecipe()">
+    <div class="pull-left">
+        <h4>Recipe Name</h4>
+        {{recipe.name}}
+        <p class="list-group-item-text">Description</p>
+        {{recipe.description}}
+    </div>
+    <span class="pull-right">
+        <img [src]="recipe.imgSrc" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>

@@ -19,9 +19,9 @@ export class RecipeService {
             new Ingredient('meat', 2),
             new Ingredient('lettuce',5)
         ]),
-        new Recipe('yugaloogaloo',
-        'recipe test lobo',
-        'https://i.ebayimg.com/images/g/v2kAAOSwuyNdM2IJ/s-l1600.jpg',
+        new Recipe('bebop',
+        'recipe test bebop',
+        '../../../assets/bebopPizza.jpg',
         [
             new Ingredient('bones', 2),
             new Ingredient('onion',5)
@@ -32,7 +32,9 @@ export class RecipeService {
     getRecipes(){
         return this.recipes.slice();
     }
-
+    getRecipe(index:number){
+        return this.recipes.slice()[index];
+    }
     addIToShoppingList(ingredients:Ingredient[]){
             this.shLS.onAddIngredients(ingredients);
     }

@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  isActive:string = 'recipes';
-
-  onNavigated(feature:string){
-    this.isActive = feature;
-  }
+  
 }

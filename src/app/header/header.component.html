@@ -9,14 +9,15 @@
           <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active"><a routerLink="/recipes">recipes</a></li>
+                <li routerLinkActive="active"><a routerLink="/auth">Authenticate</a></li>
                 <li routerLinkActive="active"><a routerLink="/shopping">ShoppingList</a></li>
             </ul>
             <ul class="nav navbar navbar-right">
                 <li class="dropdown" appDropDown>
                     <a class="dropdown-toogle" role="button">Manage<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a style="cursor:pointer;">Save data</a></li>
-                        <li><a style="cursor:pointer;">Fetch data</a></li>
+                        <li><a style="cursor:pointer;" (click)="onSaveData()">Save data</a></li>
+                        <li><a style="cursor:pointer;" (click)="onFetchData()">Fetch data</a></li>
                     </ul>
                 </li>
             </ul>

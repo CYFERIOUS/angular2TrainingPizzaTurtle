@@ -3,9 +3,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest } from
 import { Observable,exhaustMap, map, take, tap } from "rxjs";
 import { AuthService } from "./auth.service";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({providedIn:'root'})
 export class AuthInterceptorService implements HttpInterceptor{
     constructor(private aus:AuthService){
 

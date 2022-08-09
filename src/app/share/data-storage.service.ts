@@ -2,8 +2,8 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { exhaustMap, map, take, tap } from "rxjs";
 import { AuthService } from "src/app/auth/auth.service";
-import { Recipe } from "../recipe.model";
-import { RecipeService } from "../recipe.service";
+import { Recipe } from "../recipes/recipe.model";
+import { RecipeService } from "../recipes/recipe.service";
 
 @Injectable({
     providedIn: 'root'

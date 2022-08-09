@@ -1,46 +1,20 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule, Router } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { AuthComponent } from "./auth/auth.component";
-import { AuthGuardService } from "./auth/authguard.service";
-import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
-import { RecipesEditComponent } from "./recipes/recipes-edit/recipes-edit.component";
-import { RecipesResolverService } from "./recipes/recipes-resolver.service";
-import { RecipesStartComponent } from "./recipes/recipes-start/recipes-start.component";
-import { RecipesComponent } from "./recipes/recipes.component";
-import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
+import { Routes, RouterModule, PreloadAllModules} from "@angular/router";
 
 
 const appRoutes:Routes = [
     {path:'', redirectTo:'/recipes',pathMatch:'full'},
-    {path:'recipes', component:RecipesComponent,
-        canActivate:[AuthGuardService],
-        children:[
-            {path:'',component: RecipesStartComponent},
-            {path:'new',component: RecipesEditComponent},
-            {path:':id',component: RecipeDetailComponent,resolve:[RecipesResolverService]},
-            {path:':id/edit',component: RecipesEditComponent,resolve:[RecipesResolverService]},
-        ]},
-    
-    {path:'shopping', 
-      component:ShoppingListComponent,
-    },
-    {path: 'auth', component:AuthComponent}
-    //{path:'not-found', component: PageNotFoundComponent},
-    //{path:'not-found', component: ErrorPageComponent, data:{message:'page not found from static'}},
-    //{path:'**', redirectTo:'/not-found'}
-  
+    {path:'recipes', loadChildren:()=>import('./recipes/recipes.module').then(m=>m.RecipesModule)},
+    {path:'shopping', loadChildren:()=>import('./shopping-list/shopping.module').then(m=>m.ShoppingModule)},
+    {path:'auth', loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)},
   ];
 
 @NgModule({
     imports:[
-        RouterModule.forRoot(appRoutes,{useHash:true})
+        RouterModule.forRoot(appRoutes,{preloadingStrategy:PreloadAllModules})
     ],
     exports:[
         RouterModule
     ]
 })
-export class AppRoutingModule {
-    
-    
-}
+export class AppRoutingModule {}

@@ -3,9 +3,11 @@ import { Subject } from "rxjs";
 
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
-import { Ingredient } from "./share/ingredient.model";
+import { Ingredient } from "../share/ingredient.model";
 
-@Injectable()
+@Injectable({
+    providedIn : 'root'
+})
 export class RecipeService {
 
     constructor(private shLS:ShoppingListService){}

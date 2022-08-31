@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-import { AccountComponent } from './account/account.component';
-import { NewAccountComponent } from './new-account/new-account.component';
-import { AccountService } from './services/account.service';
-import { LoggingService } from './services/logging.service';
-import { ColorStatus } from './services/colorStatus.service';
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent,
-    NewAccountComponent
+    CockpitComponent,
+    ServerElementComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
-  providers: [AccountService, LoggingService, ColorStatus],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pizzaTurtle": {
+    "dataBindFerNossa": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pizza-turtle",
+            "outputPath": "dist/data-bind-fer-nossa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
+                "node_modules/bootstrap3/dist/css/bootstrap.min.css",
+		"src/styles.scss"
             ],
             "scripts": []
           },
@@ -71,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pizzaTurtle:build:production"
+              "browserTarget": "dataBindFerNossa:build:production"
             },
             "development": {
-              "browserTarget": "pizzaTurtle:build:development"
+              "browserTarget": "dataBindFerNossa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pizzaTurtle:build"
+            "browserTarget": "dataBindFerNossa:build"
           }
         },
         "test": {
@@ -98,8 +97,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+	      "node_modules/bootstrap3/dist/css/bootstrap.min.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -107,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "pizzaTurtle"
-}
+  "defaultProject": "dataBindFerNossa"
+}	

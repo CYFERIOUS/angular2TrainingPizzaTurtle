@@ -1,0 +1,20 @@
+
+<div class="container">
+    <button id="ninjaEnter" class="btn btn-primary" [disabled]="ninjaWeapon === '' " (click)="onClickNinjaBtn()" >add ninja</button>
+
+    <input type="text" class="form-control" [(ngModel)]="ninjaWeapon"/>
+
+    <label> insert ninja weapon </label>
+    <p>{{ninjaWeapon}}</p>
+
+    <div class="row align-items-start">
+            <div id="app-server"  class="col" *ngFor="let wpon of weapons"></div>
+            <p *ngIf="addNinja; else noNinja">the ninja is on the road with {{ninjaActive}}</p>
+            <ng-template  #noNinja>
+                <p>no ninja in the road because no pizza</p>
+            </ng-template>
+    </div>
+
+</div>
+  <!--<input type="text" class="form-control" (input)="onUpdateNinjaWeapon($event)"/>
+    <p>{{ninjaWeapon}}</p>-->

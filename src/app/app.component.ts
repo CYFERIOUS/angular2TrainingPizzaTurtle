@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
+  serverElements = [];
+  newServerName = '';
+  newServerContent = '';
 
-  constructor(private aus:AuthService){
-
+  onAddServer() {
+    this.serverElements.push({
+      type: 'server',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
   }
 
-  ngOnInit(): void {
-
-    this.aus.autoLogin();
-      
+  onAddBlueprint() {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
   }
-
-  
 }

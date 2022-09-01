@@ -1,22 +1,17 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-import { BasicHighlight } from './basicHighLight/basicHighLight.directive';
-import { BetterHighlightDirective } from './betterHighlight/better-highlight.directive';
-import { UnlessDirective } from './unless.directive';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BasicHighlight,
-    BetterHighlightDirective,
-    UnlessDirective
-    
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

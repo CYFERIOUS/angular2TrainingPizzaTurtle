@@ -3,12 +3,26 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numbers = [1, 2, 3, 4, 5];
-  oddNumbers=[1,3,5];
-  evenNumbers=[2,4];
-  onlyOdd = false;
-  optionSwitch = 20;
+  serverElements = [];
+  newServerName = '';
+  newServerContent = '';
+
+  onAddServer() {
+    this.serverElements.push({
+      type: 'server',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
+  }
+
+  onAddBlueprint() {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
+  }
 }

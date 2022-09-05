@@ -1,23 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { AccountComponent } from './account/account.component';
-import { NewAccountComponent } from './new-account/new-account.component';
-import { AccountService } from './services/account.service';
-import { LoggingService } from './services/logging.service';
-import { ColorStatus } from './services/colorStatus.service';
+import { headerComponent } from './header/header.component';
+import { AppRoutingModule } from './app.routing.module';
+import { ShareModule } from './share/share.module';
+import { CoreModule } from './core.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent,
-    NewAccountComponent
+    headerComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule, 
+    ShareModule, 
+    CoreModule,
+    AppRoutingModule,
+   
   ],
-  providers: [AccountService, LoggingService, ColorStatus],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

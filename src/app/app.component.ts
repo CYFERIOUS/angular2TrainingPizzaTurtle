@@ -1,19 +1,22 @@
-import { Component, OnInit,HostBinding} from '@angular/core';
-import { AccountService } from './services/account.service';
-
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers:[AccountService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
- accounts:{name:string, status:string}[] = [];
- 
 
- constructor(private acoServ:AccountService){}
- ngOnInit(): void {
-   this.accounts = this.acoServ.accounts;
- }
+  constructor(private aus:AuthService){
+
+  }
+
+  ngOnInit(): void {
+
+    this.aus.autoLogin();
+      
+  }
+
+  
 }

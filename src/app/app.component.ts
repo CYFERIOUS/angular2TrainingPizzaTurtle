@@ -1,27 +1,40 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { Store } from '@ngrx/store';
 
-import { LoggingService } from './logging.service';
-import * as fromApp from './store/app.reducer';
-import * as AuthActions from './auth/store/auth.actions';
+import { Component} from '@angular/core';
+
+import { slideInAnimation } from './animationPage.app.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  animations:[
+    slideInAnimation
+  ]
 })
-export class AppComponent implements OnInit {
-  constructor(
-    private store: Store<fromApp.AppState>,
-    private loggingService: LoggingService,
-    @Inject(PLATFORM_ID) private platformId
-  ) {}
+export class AppComponent {
+  state = 'normal';
+  wildEst = 'normal';
+  list = ['Milk', 'Sugar', 'Bread'];
 
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.store.dispatch(new AuthActions.AutoLogin());
+    onAdd(item) {
+      this.list.push(item);
     }
-    this.loggingService.printLog('Hello from AppComponent ngOnInit');
-  }
+    onDelete(item) {
+      this.list.splice(item,1);
+    }
+    onAnimate(){
+    
+      this.state == 'normal' ? this.state = 'highLighted' : this.state ='normal';
+      this.wildEst == 'normal' ?this.wildEst = 'highLighted' : this.wildEst ='normal';
+    }
+
+    animationStarted(event){
+      console.log(event)
+    }
+    animationEnded(event){
+      console.log(event)
+    }
+
+    onShrink(){
+      this.wildEst = 'shrunken';
+    }
 }

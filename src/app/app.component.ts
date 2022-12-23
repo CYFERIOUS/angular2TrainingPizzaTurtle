@@ -1,40 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Component} from '@angular/core';
-
-import { slideInAnimation } from './animationPage.app.component';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  animations:[
-    slideInAnimation
-  ]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  state = 'normal';
-  wildEst = 'normal';
-  list = ['Milk', 'Sugar', 'Bread'];
+export class AppComponent implements OnInit {
+  posts: Post[] = [];
 
-    onAdd(item) {
-      this.list.push(item);
-    }
-    onDelete(item) {
-      this.list.splice(item,1);
-    }
-    onAnimate(){
-    
-      this.state == 'normal' ? this.state = 'highLighted' : this.state ='normal';
-      this.wildEst == 'normal' ?this.wildEst = 'highLighted' : this.wildEst ='normal';
-    }
+  constructor(private http: HttpClient) {}
 
-    animationStarted(event){
-      console.log(event)
-    }
-    animationEnded(event){
-      console.log(event)
-    }
-
-    onShrink(){
-      this.wildEst = 'shrunken';
-    }
+  ngOnInit() {
+    this.http
+      .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+      .subscribe(fetchedPosts => (this.posts = fetchedPosts));
+  }
 }

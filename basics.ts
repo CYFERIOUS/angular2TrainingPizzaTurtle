@@ -114,8 +114,8 @@ max={
 ///interfaces implements clases
 
 class Instructor implements Human{
-    firstName: "milton",
-    age: 35,
+    firstName = "milton";
+    age = 35;
     greet(){
         console.log("hello fothermuckers");
     }

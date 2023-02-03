@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from "./user.service";
 import { DataService } from "../shared/data.service";
+import { HighlightDirective } from '../directives/highlight.directive';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +12,7 @@ import { DataService } from "../shared/data.service";
 })
 export class UserComponent implements OnInit {
   user: {name: string};
-  isLoggedIn = false;
+  isLoggedIn = true;
   data: string;
 
   constructor(private userService: UserService, private dataService: DataService) { }
